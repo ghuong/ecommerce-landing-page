@@ -1,6 +1,18 @@
+* {
+  // margin: 0;
+  // padding:0;
+  box-sizing: border-box;
+}
+
+$red: rgb(204, 54, 43);
+
 body {
-  margin: 1.5em; // em to scale margin/padding w/ users' font-size
   font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+.wrapper {
+  margin: 1.5em; // em to scale margin/padding w/ users' font-size
 }
 
 a {
@@ -31,7 +43,7 @@ nav {
   position: fixed;
   right: 0;
   top: 0;
-  background: white;
+  background: black;
   height: 100vh;
   width: 50%;
   z-index: 999;
@@ -45,12 +57,12 @@ nav {
     margin-top: 8em;
 
     a {
-      color: black;
+      color: white;
       padding: .75em 2em;
       display: block; // a-tags default to inline, which ignore margin/padding
 
       &:hover {
-        background: rgb(235, 235, 235);
+        background: rgb(43, 43, 43);
       }
     }
   }
@@ -65,12 +77,34 @@ nav {
 header {
   display: flex;
   justify-content: space-between;
+  background-color: transparent; // 
+  width: 100%;
+  position: sticky;
+  height: 10vh;
+  padding: 1.5em;
+  top: 0;
+  left: 0;
+  align-items: center;
+  z-index: 10;
+  transition: background-color .5s linear;
 
   svg {
     width: 2.3em;
-    margin-top: -.6em;
+    // margin-top: -.6em;
     cursor: pointer;
   }
+}
+
+header.active {
+  background-color: black;
+
+  .logo {
+      color: white;
+  
+      span {
+        color: $red;
+      }
+    }
 }
 
 h1 {
@@ -126,9 +160,8 @@ section.hero {
 */
 
 @media only screen and (min-width: 680px) {
-  body {
+  .wrapper {
     margin: 1.5em 5em;
-    font-family: 'Poppins', sans-serif;
   }
 }
 
@@ -158,10 +191,23 @@ section.hero {
         color: white;
         padding: .5em 1.5em;
         font-size: .9rem;
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: .1rem;
+            bottom: .1rem;
+            left: 25%;
+            border-radius: 5px;
+          }
 
         &:hover {
           background: none;
-          text-decoration: underline;
+          &:before {
+            background-color: white;
+          }
         }
       }
     }
@@ -178,7 +224,7 @@ section.hero {
     color: black;
 
     span {
-      color: red;
+      color: $red;
     }
   }
 
