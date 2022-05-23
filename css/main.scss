@@ -166,11 +166,12 @@ section.hero {
 }
 
 @media only screen and (min-width: 920px) {
-  // Hide hamburger menu, show full nav
+  // Hide hamburger menu
   svg.menu {
     display: none;
   }
 
+  // show full nav menu
   nav {
     transform: translateX(0);
     position: unset;
@@ -232,7 +233,7 @@ section.hero {
     color: black;
     height: auto;
     width: 40%;
-    margin-bottom: 9em;
+    margin-bottom: 16em;
 
     .down-arrow {
       stroke: black;
@@ -244,7 +245,7 @@ section.hero {
   .feature {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    gap: 3em;
+    gap: 0 3em;
     margin-bottom: 8em;
 
     img {
@@ -253,6 +254,7 @@ section.hero {
 
     .content {
       text-align: right;
+      justify-self: right;
       width: 25em;
     }
   }
@@ -262,22 +264,20 @@ section.hero {
     
     img {
       grid-area: left;
+      justify-self: right;
     }
 
     .content {
       text-align: left;
+      justify-self: left;
     }
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1300px) {
   .wrapper {
     width: 1200px;
-    margin: 0 auto;
-  }
-
-  .feature {
-    gap: 0;
+    margin: 1.5em auto;
   }
 }
 
